@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ScoolAPI.Models;
 
-namespace ScoolAPI.Models
+namespace ScoolAPI.Controllers
 {
     [Route("api/teachers")]
     [ApiController]
