@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using ScoolAPI.Data.Interfaces;
 
 namespace ScoolAPI.Models
 {
@@ -8,5 +10,8 @@ namespace ScoolAPI.Models
         public string FirstName { get; set; }
         [MaxLength(255)]
         public string LastName { get; set; }
+        public List<Subject> Subjects { get; set; } = new();
+
+        
     }
 }

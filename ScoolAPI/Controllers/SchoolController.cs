@@ -2,28 +2,36 @@
 using Microsoft.AspNetCore.Mvc;
 using ScoolAPI.Data;
 using ScoolAPI.Models;
+using ScoolAPI.Controllers;
+using ScoolAPI.Data.Interfaces;
 
 namespace ScoolAPI.Controllers
 {
-    [Route("api/teachers")]
+    [Route("api")]
     [ApiController]
-    public class TeacherController : ControllerBase
+    public class SchoolController : ControllerBase
     {
-        private MockRepository _repo;
+        private ISchoolRepository _repo;
 
-        public TeacherController()
+        public SchoolController(ISchoolRepository repo) // Dependancy Injection
+
+        
+
+
         {
-            _repo = new MockRepository();
+            _repo = repo;
+            
         }
 
         [HttpGet]
+        [Route("teachers")]
         public List<Teacher> GetAllTeachers()
         {
             return _repo.GetAllTeachers();
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("teachers/{id}")]
         public ActionResult<Teacher> GetTeacherById(int id)
         {
             
@@ -36,5 +44,12 @@ namespace ScoolAPI.Controllers
             return teacher;
             
         }
+        [HttpGet]
+        [Route("students")]
+        public List<Student> GetAllStudents()
+        {
+            return _repo.GetAllStudents();
+        }
+
     }
 }
