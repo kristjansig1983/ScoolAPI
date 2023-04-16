@@ -12,6 +12,9 @@ namespace ScoolAPI.Models
         public string LastName { get; set; }
         public List<Subject> Subjects { get; set; } = new();
 
-        
+       // public string ProfileImGurl  { get; set; } // = url fyrir mynd.
+
+
+
     }
 }
