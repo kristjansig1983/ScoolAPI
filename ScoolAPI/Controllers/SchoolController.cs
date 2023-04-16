@@ -6,6 +6,8 @@ using ScoolAPI.Controllers;
 using ScoolAPI.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
+
+
 namespace ScoolAPI.Controllers
 {
     [Route("api")]
@@ -44,6 +46,9 @@ namespace ScoolAPI.Controllers
                 {
                     return NotFound();
                 }
+
+                TeacherDTO teacherDTO = new TeacherDTO()
+                { FirstName = teacher.FirstName, Subjects = teacher.Subjects };
                 return teacher;
             }
             catch (Exception) 
